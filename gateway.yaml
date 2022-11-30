@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  cloud: 
+   gateway: 
+    routes:
+      - id: videojuegos
+        uri: lb://videojuegos/
+        predicates:
+          - Path=/videojuegos/**
+      - id: usuarios
+        uri: lb://usuarios/
+        predicates:
+          - Path=/usuarios/**
